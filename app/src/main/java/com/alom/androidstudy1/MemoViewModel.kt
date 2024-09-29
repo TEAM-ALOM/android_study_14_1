@@ -17,7 +17,6 @@ class MemoViewModel : ViewModel(){
     }
 
     fun saveMemo(content:String,context: Context){
-        //Todo.SharedPreference 저장 구현
         _currentText.value = content
 
         val pref:SharedPreferences = context.getSharedPreferences("pref",Context.MODE_PRIVATE)
