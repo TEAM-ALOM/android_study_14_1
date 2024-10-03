@@ -21,8 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("alom", MODE_PRIVATE)
 
-        // 인자값으로 sharedPreference를 넘겨 주기 위해 factory 사용
-        val factory = ViewModelFactory(sharedPreference)
+        // viewModel의 인자값으로 repository를 넘겨 줌
+        val repository = RepositoryImpl(sharedPreference)
+        val factory = ViewModelFactory(repository)
 
         mainViewModel = ViewModelProvider(this, factory).get(MainViewModel::class.java)
 

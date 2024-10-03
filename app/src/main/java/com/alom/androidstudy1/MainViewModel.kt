@@ -9,14 +9,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val sharedPreference: SharedPreferences): ViewModel() {
+class MainViewModel(private val repository: Repository): ViewModel() {
     private var _currentMemo = MutableStateFlow("")
 
     val currentMemo: StateFlow<String>
         get() = _currentMemo.asStateFlow()
 
     init {
-        _currentMemo = MutableStateFlow(sharedPreference.getString("memo", "").toString())
+        viewModelScope.launch {
+            _currentMemo.emit(repository.getMemo())
+        }
     }
 
 
@@ -24,7 +26,7 @@ class MainViewModel(private val sharedPreference: SharedPreferences): ViewModel(
     fun updateValue(input: String) {
         viewModelScope.launch {
             _currentMemo.emit(input)
-            sharedPreference.edit().putString("memo", input).apply()
+            repository.setMemo(input)
         }
     }
 }
