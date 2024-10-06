@@ -7,6 +7,10 @@ android {
     namespace = "com.alom.androidstudy1"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.alom.androidstudy1"
         minSdk = 26
@@ -42,4 +46,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.runtime.ktx)
+
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.mockk)
 }
