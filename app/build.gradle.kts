@@ -50,4 +50,7 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.livedata.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+
+    testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.mockk)
 }
