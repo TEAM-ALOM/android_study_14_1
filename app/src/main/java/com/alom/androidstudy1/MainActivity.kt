@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.alom.androidstudy1.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -20,6 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSave.setOnClickListener{
             memoViewModel.updateMemo(binding.etText.text.toString())
+        }
+
+        lifecycleScope.launch {
+            memoViewModel.currentValue.collect{
+                binding.etText.setText(it)
+            }
         }
     }
 }
