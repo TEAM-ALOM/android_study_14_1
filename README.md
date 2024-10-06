@@ -1,6 +1,18 @@
 # android_study_14_1
 아롬 안드로이드 14기 스터디 1번
 
+# ToDo
+|내용|완료 여부|
+|---|:---:|
+|MVVM 학습하기|✅|
+|ㄴMVVM 코드 구현|✅|
+|StateFlow 학습하기|✅|
+|ㄴStateFlow 코드 구현|✅|
+|SharedPreferences 이용한 저장 기능 구현|✅|
+|Repository 학습하기||
+
+
+# 과제 설명
 ### 간단하게 메모하고 저장, 불러오는 앱을 만들어봅시다.
 
 단) mvvm + stateflow를 이용해서!
